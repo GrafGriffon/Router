@@ -1,0 +1,16 @@
+{
+    "name": "griffo/router",
+    "description": "HTTP router",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Illia Kurbatski",
+            "email": "illiaa552@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1.0"
+    }
+}
