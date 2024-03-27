@@ -1,5 +1,5 @@
 {
-    "name": "graf_griffon/router",
+    "name": "graf_griffon/php-router",
     "description": "HTTP router",
     "type": "library",
     "license": "Apache-2.0",
