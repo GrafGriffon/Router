@@ -9,7 +9,7 @@
             "email": "illiaa552@mail.ru"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "alpha",
     "require": {
         "php": ">=8.0"
     }
