@@ -1,5 +1,5 @@
 {
-    "name": "griffo/router",
+    "name": "griffon/router",
     "description": "HTTP router",
     "type": "library",
     "license": "Apache-2.0",
