@@ -1,5 +1,7 @@
 <?php
 
+namespace GrafGriffon\PhpRouter;
+
 class Router
 {
     private array $routes;

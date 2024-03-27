@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => '1.0.1',
+        'version' => '1.0.1.0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '58b6aa2488f44dfe8b52a3e751eec6427eb1efe3',
-        'name' => 'griffo/router',
+        'reference' => NULL,
+        'name' => 'grafgriffon/php-router',
         'dev' => true,
     ),
     'versions' => array(
-        'griffo/router' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+        'grafgriffon/php-router' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '58b6aa2488f44dfe8b52a3e751eec6427eb1efe3',
+            'reference' => NULL,
             'dev_requirement' => false,
         ),
     ),

@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit45db0a9103147b59f2cd4d203810cc4c
 {
+    public static $prefixLengthsPsr4 = array (
+        'G' => 
+        array (
+            'GrafGriffon\\PhpRouter\\' => 22,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'GrafGriffon\\PhpRouter\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -13,6 +27,8 @@ class ComposerStaticInit45db0a9103147b59f2cd4d203810cc4c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit45db0a9103147b59f2cd4d203810cc4c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit45db0a9103147b59f2cd4d203810cc4c::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit45db0a9103147b59f2cd4d203810cc4c::$classMap;
 
         }, null, ClassLoader::class);

@@ -1,10 +1,12 @@
 <?php
 
+namespace GrafGriffon\PhpRouter;
 class Route
 {
     public string $method;
     public string $path;
     public mixed $target;
+
     public function __construct(string $method, string $path, mixed $target)
     {
         $this->method = $method;
@@ -12,7 +14,8 @@ class Route
         $this->target = $target;
     }
 
-    public static function make(string $method, string $path, mixed $target): self {
+    public static function make(string $method, string $path, mixed $target): self
+    {
         return new self($method, $path, $target);
     }
 

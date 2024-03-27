@@ -9,9 +9,13 @@
             "email": "illiaa552@mail.ru"
         }
     ],
-    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "GrafGriffon\\PhpRouter\\": "src/"
+        }
+    },
     "require": {
         "php": ">=8.0"
     },
-    "version": "1.0.1"
+    "version": "1.1"
 }
