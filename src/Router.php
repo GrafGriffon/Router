@@ -5,19 +5,26 @@ namespace GrafGriffon\PhpRouter;
 class Router
 {
     private array $routes;
+    private string $globalGroup;
 
-    public function __construct(array $routes = [])
+    public function __construct(array $routes = [], string $globalGroup = '')
     {
-        $this->routes = $routes;
+        $this->setRoutes($routes);
+        $this->setGlobalGroup($globalGroup);
     }
 
-    public static function prefix(string $prefix, ...$routes): array
+    public function setGlobalGroup(string $globalGroup = ''): void
+    {
+        $this->globalGroup = $globalGroup;
+    }
+
+    public static function group(string $groupName, ...$routes): array
     {
         $routes = self::flattenArray($routes);
         /** @var Route $route */
         foreach ($routes as $route) {
             if ($route instanceof Route) {
-                $route->prefix($prefix);
+                $route->prefix($groupName);
             }
         }
         return $routes;
@@ -56,6 +63,10 @@ class Router
         $path = $path ?: ($_SERVER['REQUEST_URI'] ?? '/');
         $method = $method ?: ($_SERVER['REQUEST_METHOD'] ?? 'GET');
 
+        if ($this->globalGroup != '' && !str_starts_with($this->globalGroup, '/')) {
+            $globalGroup = '/' . $this->globalGroup;
+        }
+
         if (($strPos = strpos($path, '?')) !== false) {
             $path = substr($path, 0, $strPos);
         }
@@ -71,6 +82,7 @@ class Router
             if (!str_starts_with($routePath, '/')) {
                 $routePath = '/' . $routePath;
             }
+            $routePath = $globalGroup . $routePath;
 
             if (($position = strpos($routePath, '[')) === false) {
                 $match = strcmp($path, $routePath) === 0;

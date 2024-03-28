@@ -17,5 +17,5 @@
     "require": {
         "php": ">=8.0"
     },
-    "version": "1.2"
+    "version": "1.3"
 }
