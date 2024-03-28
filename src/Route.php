@@ -21,7 +21,7 @@ class Route
 
     public function prefix(string $prefix): self
     {
-        $this->path = "$prefix/$this->path";
+        $this->path = $this->path != '' ? "$prefix/$this->path" : $prefix;
         return $this;
     }
 }
