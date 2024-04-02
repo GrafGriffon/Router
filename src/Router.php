@@ -63,9 +63,7 @@ class Router
         $path = $path ?: ($_SERVER['REQUEST_URI'] ?? '/');
         $method = $method ?: ($_SERVER['REQUEST_METHOD'] ?? 'GET');
 
-        if ($this->globalGroup != '' && !str_starts_with($this->globalGroup, '/')) {
-            $globalGroup = '/' . $this->globalGroup;
-        }
+        $globalGroup = $this->globalGroup != '' && !str_starts_with($this->globalGroup, '/') ? '/' . $this->globalGroup : $this->globalGroup;
 
         if (($strPos = strpos($path, '?')) !== false) {
             $path = substr($path, 0, $strPos);
