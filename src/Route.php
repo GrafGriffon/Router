@@ -3,25 +3,45 @@
 namespace GrafGriffon\PhpRouter;
 class Route
 {
-    public string $method;
+    public array $methods;
     public string $path;
     public mixed $target;
+    public array $middleware;
 
-    public function __construct(string $method, string $path, mixed $target)
+    public function __construct(array $methods, string $path, mixed $target, array $middleware = [])
     {
-        $this->method = $method;
-        $this->path = $path;
+        $this->methods = $methods;
+        $this->path = trim($path, '/');;
         $this->target = $target;
+        $this->middleware = $middleware;
     }
 
-    public static function make(string $method, string $path, mixed $target): self
+    public function prefix(string $prefix, array $middleware = []): self
     {
-        return new self($method, $path, $target);
-    }
-
-    public function prefix(string $prefix): self
-    {
-        $this->path = $this->path != '' ? "$prefix/$this->path" : $prefix;
+        foreach ($middleware as $element) {
+            $this->middleware[] = $element;
+        }
+        $this->path = (!in_array($prefix, ['', '/']) ? '/' . trim($prefix, '/') . '/' : '') . trim($this->path, '/');
         return $this;
+    }
+
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+    public function getTarget(): mixed
+    {
+        return $this->target;
+    }
+
+    public function getMethods(): array
+    {
+        return $this->methods;
+    }
+
+    public function getMiddleware(): array
+    {
+        return $this->middleware;
     }
 }
